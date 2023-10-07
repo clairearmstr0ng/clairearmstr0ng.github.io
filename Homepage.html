@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <input type="checkbox" id="my-menu">
+    <label for="my-menu">
+      <div class="hide-des">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </div>
+    </label>
+
+    <div class="my-menu">
+      <ul class="navbar">
+        <a href="Homepage.html" class="no-underline">Home</a>
+        <a href="GeneralInformation.html" class="no-underline">General Information</a>
+        <a href="Subjects.html" class="no-underline">Subjects</a>
+        <a href="Assessmentprocedure.html" class="no-underline">Assessment Procedure</a>
+        <a href="StudyingTips.html" class="no-underline">Studying Tips</a>
+        <a href="storingDetails.html" class="no-underline">Store your details!</a>
+        <a href="programmingquiz.html" class="no-underline">QUIZ!</a>
+      </ul>
+    </div>
+    <div class="logo">
+      <img src="logo copy.png" alt="">
+
+    </div>
+    <div class="box">
+      <div class="description"><h1>NCEA stands for National Certificate of Educational Achievement. New Zealand Qualifications Auhtority (NZQA) is the agency which oversees NCEA in New Zealand and NCEA was first introduced in 2002. When first starting NCEA and trying to learn more about it can be hard because there's information spread out everywhere, 'NCEA Insider' is made to help breakdown and tell you about what NCEA is in simpler terms and what subject offers there is at Marist College + general information and what assessment procedures are like and there is even a page on study tips and a quick quiz! There is alsoa page where you cans tore some of your school information which is easy for you to access when you need it.</h1></div>
+
+      </div>
+
+    <style>
+      .box {
+          display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 5px;
+          width: 95%;
+            padding: 5px;
+            margin-bottom: 10px;
+            background-color: #15171f;
+            border: 1px solid #ccc;
+            align-self: center;
+            flex: 1;
+            padding: 0px;
+            background-color: #15171f;
+            border: 2px solid #ffffff;
+            margin-left: 2%;
+          margin-right: 2%;
+        }
+      h1{
+        font-size: 30px;
+        color: #e2e2e2;
+        margin-top: 2.5%;
+        
+      }
+      .no-underline {
+        text-decoration: none;
+        outline: none;
+      }
+      .description {
+        align-items: center;
+        margin-left: 3%;
+        margin-right: 3%;
+
+      }
+
+    .logo {
+    display: flex;
+    align-items: center;
+    height: 90vh;
+  }
+  .logo img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  body {
+width: 100%;
+font-size: 8px;
+font-weight: normal;
+font-family: sans-serif;
+background-color: rgb(27, 35, 46);
+--icon-hover-bg: #ffffff;
+--border-color: #495579;
+--darkest-blue: #15171f;
+--navy-blue: rgb(27, 35, 46);
+--fade-blue: rgba(57, 57, 87, 0.55);
+
+}
+
+#my-menu {
+display: none;
+}
+label[for="my-menu"] {
+display: block;
+position: fixed;
+top: 24px;
+left: 20px;
+z-index: 999;
+width: 60px;
+height: 60px;
+border-radius: 15px;
+border: 2px solid var(--border-color);
+}
+.my-menu {
+width: 50vw;
+height: 100%;
+position: fixed;
+top: 0;
+visibility: hidden;
+transform: translate(-110%);
+z-index: 998;
+background-color: var(--darkest-blue);
+transition: 1s;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.my-menu > ul {
+display: flex;
+flex-flow: column nowrap;
+justify-content: space-around;
+padding: 20px;
+height: 50%;
+}
+
+#my-menu:checked + label {
+background-color: transparent;
+border-color: var(--navy-blue);
+}
+#my-menu:checked ~ div.my-menu {
+transform: translate(0px);
+visibility: visible;
+}
+
+[for="my-menu"] > div {
+width: 100%;
+height: 100%;
+display: flex;
+flex-flow: column wrap;
+align-content: center;
+
+}
+.menu-line {
+display: block;
+width: 17px;
+height: 2px;
+margin: 10px 0 5px;
+border-top-left-radius: 2px;
+border-bottom-left-radius: 2px;
+background-color: var(--border-color);
+}
+
+p {
+display: inline;
+font-size: 1.8rem;
+line-height: 1.5em;
+word-spacing: 0.5em;
+letter-spacing: 0.1em;
+font-family: "OpenSansCondensed-Light";
+}
+a {
+font-size: 30px;
+line-height: 1.5em;
+word-spacing: 0.5em;
+letter-spacing: 0.1em;
+font-family: "OpenSansCondensed-Light";
+display: inline;
+font-weight: bold;
+padding: 7px;
+color: #f1fff1;
+}
+
+.navbar {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+    </style>
+
+    
+</body>
+</html>

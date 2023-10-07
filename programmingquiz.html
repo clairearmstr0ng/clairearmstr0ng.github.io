@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <input type="checkbox" id="my-menu">
+    <label for="my-menu">
+      <div class="hide-des">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </div>
+    </label>
+
+    <div class="my-menu">
+      <ul class="navbar">
+        <a href="Homepage.html" class="no-underline">Home</a>
+        <a href="GeneralInformation.html" class="no-underline">General Information</a>
+        <a href="Subjects.html" class="no-underline">Subjects</a>
+        <a href="Assessmentprocedure.html" class="no-underline">Assessment Procedure</a>
+        <a href="StudyingTips.html" class="no-underline">Studying Tips</a>
+        <a href="storingDetails.html" class="no-underline">Store your details!</a>
+        <a href="programmingquiz.html" class="no-underline">QUIZ!</a>
+      </ul>
+    </div>
+    <body>
+        <br><br><br><br><br><br><br><br><br>
+        <h1>QUIZ TIME!</h1>
+        <div id="optionSpace">
+            <h2 id="questionSpace"></h2>
+            <h3 id="yourScore"></h3>
+            <input type="radio" id="option1" name="options" value="Option1">
+            <label for="option1" id="label1"></label><br>
+            <input type="radio" id="option2" name="options" value="Option2">
+            <label for="option2" id="label2"></label><br>
+            <input type="radio" id="option3" name="options" value="Option3">
+            <label for="option3" id="label3"></label><br>
+            <br>
+            <button onclick="submitButton()">Submit</button>
+            <br><br>
+        </div>
+      
+    
+        <script>
+            const label1 = document.getElementById("label1");
+            const label2 = document.getElementById("label2");
+            const label3 = document.getElementById("label3");
+            const questionSpace = document.getElementById("questionSpace");
+            var yourScore = document.getElementById("yourScore");
+    
+            var counter = 0; //this is a counter which starts the questions / options from the first question starting at 0
+            var score = 0; //this tracks the score starting it from 0
+    
+            //this is an array of questions and answers that will be shown to the user for them to read and decide what answer fits best with the question
+            var questions = ["How many credits are required to achieve NCEA level 1?", 
+            "In what year was NCEA introduced to New Zealand?", 
+            "What does NCEA stand for?", 
+            "How many credits are required for a subject endorsement in NCEA Level 1?", 
+            "What is the NCEA term for an assessment that is not set and marked by the national examination body but by the student's teacher?", 
+            "Which government agency is responsible for overseeing the NCEA in New Zealand?"];
+            var options = [["50", "60", "80"],
+            ["1996", "2010", "2002"], 
+            ["National Curriculum for Educational Achievement", "National Certificate of Educational Achievement", "New Zealand Certificate of Educational Assessment"], 
+            ["14", "12", "10"],
+            ["External Assessment", "Internal Assessment", "Independant assessment"], 
+            ["Ministry of Education", "Ministry of Higher Education and Research", "New Zealand Qualifications Authority"]];
+            var answers = ["Option3", "Option3", "Option2", "Option1", "Option2", "Option3"];
+    
+            //function to update the question and answer options
+            function update() {
+                const selectedOption = document.querySelector('input[name="options"]:checked');
+                if (selectedOption) {
+        selectedOption.checked = false;
+    } //this block of code (if statement) is made to specifically clear the selection of any selected options from the previous. So when a new question is displayed no radio button is pre-selected.
+                
+                if (counter < questions.length) {
+                    questionSpace.innerHTML = questions[counter];
+                    label1.innerHTML = options[counter][0];
+                    label2.innerHTML = options[counter][1];
+                    label3.innerHTML = options[counter][2];
+                } else {
+                    //this shows that the quiz is finished and will display a message to tell the user
+                    questionSpace.innerHTML = "Quiz completed!";
+                    label1.innerHTML = "";
+                    label2.innerHTML = "";
+                    label3.innerHTML = "";
+                    yourScore.innerHTML = "Your score is " + score + " / 6"; //this will show the users score out of 6
+        //this block of code below is to make it so at the end of the quiz when it says "Quiz completed!" the radio buttons will disappear            
+        document.getElementById("option1").style.display = "none";
+        document.getElementById("option2").style.display = "none";
+        document.getElementById("option3").style.display = "none";
+        document.querySelector('button').style.display = "none";
+                }}
+    
+            //question update
+            update();
+    
+            //function for the submit button click
+            function submitButton() {
+    const selectedOption = document.querySelector('input[name="options"]:checked'); //this identifies the answer option which the user has chosen between the options on the quiz
+
+    if (selectedOption) {
+        //a option has been selected
+        if (selectedOption.value === answers[counter]) {
+            score++;
+        } //this block of code checks if the users selected answer is correct by comparing it to the correct answer for the current question and if the answer is correct then it increases the users score
+
+        //clear the selection for the next question
+        selectedOption.checked = false;
+
+        counter++; //move to the next question
+        update(); //update the page with the next question
+    } else {
+        //if no option selected it will show an error message or alert to the user
+        alert("Please select an option");
+    }}
+        </script>
+</body>
+
+<style>
+    .no-underline {
+      text-decoration: none;
+      outline: none;
+    }
+    h1{font-size: 2.5cm; 
+    color: #e2e2e2;}
+    h2{font-size: 25px;
+      color: #e2e2e2;}
+    #questions {
+      font-size: 20px;
+      color: #e2e2e2;
+    }
+    #yourScore {
+        font-size: 20px;
+      color: #e2e2e2;
+    }
+    #optionSpace{
+    font-size: 20px;
+    color: #e2e2e2;
+    border-style: solid;
+    border-radius: 20px;
+    background-color:#15171f;
+    width: 50%;
+    outline: 34px;
+    outline-style:solid;
+    outline-color:#e7e7e7;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+body {
+width: 100%;
+font-size: 8px;
+font-weight: normal;
+font-family: sans-serif;
+background-color: rgb(27, 35, 46);
+--icon-hover-bg: #ffffff;
+--border-color: #495579;
+--darkest-blue: #15171f;
+--navy-blue: rgb(27, 35, 46);
+--fade-blue: rgba(57, 57, 87, 0.55);
+text-align: center;
+}
+
+#my-menu {
+display: none;
+}
+label[for="my-menu"] {
+display: block;
+position: fixed;
+top: 24px;
+left: 20px;
+z-index: 999;
+width: 60px;
+height: 60px;
+border-radius: 15px;
+border: 2px solid var(--border-color);
+}
+.my-menu {
+width: 50vw;
+height: 100%;
+position: fixed;
+top: 0;
+visibility: hidden;
+transform: translate(-110%);
+z-index: 998;
+background-color: var(--darkest-blue);
+transition: 1s;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.my-menu > ul {
+display: flex;
+flex-flow: column nowrap;
+justify-content: space-around;
+padding: 20px;
+height: 50%;
+}
+
+#my-menu:checked + label {
+background-color: transparent;
+border-color: var(--navy-blue);
+}
+#my-menu:checked ~ div.my-menu {
+transform: translate(0px);
+visibility: visible;
+}
+
+[for="my-menu"] > div {
+width: 100%;
+height: 100%;
+display: flex;
+flex-flow: column wrap;
+align-content: center;
+
+}
+.menu-line {
+display: block;
+width: 17px;
+height: 2px;
+margin: 10px 0 5px;
+border-top-left-radius: 2px;
+border-bottom-left-radius: 2px;
+background-color: var(--border-color);
+}
+
+p {
+display: inline;
+font-size: 1.8rem;
+line-height: 1.5em;
+word-spacing: 0.5em;
+letter-spacing: 0.1em;
+font-family: "OpenSansCondensed-Light";
+}
+a {
+font-size: 30px;
+line-height: 1.5em;
+word-spacing: 0.5em;
+letter-spacing: 0.1em;
+font-family: "OpenSansCondensed-Light";
+display: inline;
+font-weight: bold;
+padding: 7px;
+color: #f1fff1;
+}
+
+.navbar {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+  </style>
+</html>

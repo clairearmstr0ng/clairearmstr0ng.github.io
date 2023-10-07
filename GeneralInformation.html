@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Information</title>
+</head>
+<body>
+    <input type="checkbox" id="my-menu">
+    <label for="my-menu">
+      <div class="hide-des">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </div>
+    </label>
+    <div class="my-menu">
+      <ul class="navbar">
+        <a href="Homepage.html" class="no-underline">Home</a>
+        <a href="GeneralInformation.html" class="no-underline">General Information</a>
+        <a href="Subjects.html" class="no-underline">Subjects</a>
+        <a href="Assessmentprocedure.html" class="no-underline">Assessment Procedure</a>
+        <a href="StudyingTips.html" class="no-underline">Studying Tips</a>
+        <a href="storingDetails.html" class="no-underline">Store your details!</a>
+        <a href="programmingquiz.html" class="no-underline">QUIZ!</a>
+      </ul>
+    </div>
+
+   <h1>NCEA General Information</h1>
+ <h3>
+• For each subject, the student will be offered several Standards. <br>
+• Each Standard is worth a particular number of credits. <br>
+<br>
+To achieve the National Certificate of Educational Achievement in each Level you must gain the following:<br><br>
+
+Level 1 = 80 credits; ten which must be in numeracy and ten in literacy.<br>
+Level 2 = 80 credits, with a minimum of 60 credits at level 2 or above.<br>
+Level 3 = 80 credits, with a minimum of 60 at level 3 and 20 at level 2 or above. <br><br>
+Credits at each level can come from any of your subjects. <br><br>
+</h3>
+
+<h2>Endorsements:</h2>
+
+<h3>• To achieve an NCEA Certificate with an Endorsement you need to do the following:<br><br>
+
+Achieved Endorsement - you need to gain at least 50 credits at Achieved. <br>
+Merit Endorsement - you must earn at least 50 credits at the Merit level or above. <br>
+Excellence Endorsement - you need 50 credits at the Excellence level.<br><br>
+ 
+Please Note: <br>
+Internal (Assessed throughout the school year) <br>
+External (Assessed at the end of the year, usually by a written examination)<br><br>
+
+
+For achievement standards, there are four grades:<br>
+• Achieved (A) for a satisfactory performance<br>
+• Merit (M) for very good performance<br>
+• Excellence (E) for outstanding performance<br>
+• Not achieved (N) if students do not meet the criteria of the standard<br><br>
+</h3>
+<h2>What happens if a student doesn't achieve a standard?</h2>
+
+<h3>Later in the year, schools might give students access to additional assessment opportunities for standards that are internally assessed. Each standard may include up to one additional assessment for students each year. 
+  Each year, there is only one chance to meet an externally assessed standard. A student may retake the test the following year if they don't meet the externally assessed standards. Students who were ill when the exams were taking place may request a derived grade for specific standards.</h3>
+
+    <style>
+        h1{
+        font-size: 80px;
+        color: #e2e2e2;
+        margin-top: 2.5%;
+        text-align: center;
+      }
+      h2 {
+        font-size: 30px;
+        color: #e2e2e2;
+        margin-left: 7%;
+        margin-right: 7%;
+      }
+      h3 {
+        font-size: 20px;
+        color: #e2e2e2;
+        margin-left: 7%;
+        margin-right: 7%;
+
+      }
+
+        .no-underline {
+            text-decoration: none;
+            outline: none;
+        }
+
+        body {
+width: 100%;
+font-size: 8px;
+font-weight: normal;
+font-family: sans-serif;
+background-color: rgb(27, 35, 46);
+--icon-hover-bg: #ffffff;
+--border-color: #495579;
+--darkest-blue: #15171f;
+--navy-blue: rgb(27, 35, 46);
+--fade-blue: rgba(57, 57, 87, 0.55);
+}
+
+#my-menu {
+display: none;
+}
+label[for="my-menu"] {
+display: block;
+position: fixed;
+top: 24px;
+left: 20px;
+z-index: 999;
+width: 60px;
+height: 60px;
+border-radius: 15px;
+border: 2px solid var(--border-color);
+}
+.my-menu {
+width: 50vw;
+height: 100%;
+position: fixed;
+top: 0;
+visibility: hidden;
+transform: translate(-110%);
+z-index: 998;
+background-color: var(--darkest-blue);
+transition: 1s;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.my-menu > ul {
+display: flex;
+flex-flow: column nowrap;
+justify-content: space-around;
+padding: 20px;
+height: 50%;
+}
+
+#my-menu:checked + label {
+background-color: transparent;
+border-color: var(--navy-blue);
+}
+#my-menu:checked ~ div.my-menu {
+transform: translate(0px);
+visibility: visible;
+}
+
+[for="my-menu"] > div {
+width: 100%;
+height: 100%;
+display: flex;
+flex-flow: column wrap;
+align-content: center;
+
+}
+.menu-line {
+display: block;
+width: 17px;
+height: 2px;
+margin: 10px 0 5px;
+border-top-left-radius: 2px;
+border-bottom-left-radius: 2px;
+background-color: var(--border-color);
+}
+
+p {
+display: inline;
+font-size: 1.8rem;
+line-height: 1.5em;
+word-spacing: 0.5em;
+letter-spacing: 0.1em;
+font-family: "OpenSansCondensed-Light";
+}
+a {
+font-size: 30px;
+line-height: 1.5em;
+word-spacing: 0.5em;
+letter-spacing: 0.1em;
+font-family: "OpenSansCondensed-Light";
+display: inline;
+font-weight: bold;
+padding: 7px;
+color: #f1fff1;
+}
+
+.navbar {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+  </style>
+    
+</body>
+</html>
