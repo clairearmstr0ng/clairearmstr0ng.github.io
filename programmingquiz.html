@@ -6,19 +6,19 @@
     <title>Quiz</title>
 </head>
 <body>
-    <input type="checkbox" id="my-menu">
-    <label for="my-menu">
+    <input type="checkbox" id="sideMenu">
+    <label for="sideMenu">
       <div class="hide-des">
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
       </div>
     </label>
 
-    <div class="my-menu">
+    <div class="sideMenu">
       <ul class="navbar">
         <a href="Homepage.html" class="no-underline">Home</a>
         <a href="GeneralInformation.html" class="no-underline">General Information</a>
@@ -33,18 +33,19 @@
         <br><br><br><br><br><br><br><br><br>
         <h1>QUIZ TIME!</h1>
         <div id="optionSpace">
-            <h2 id="questionSpace"></h2>
-            <h3 id="yourScore"></h3>
-            <input type="radio" id="option1" name="options" value="Option1">
-            <label for="option1" id="label1"></label><br>
-            <input type="radio" id="option2" name="options" value="Option2">
-            <label for="option2" id="label2"></label><br>
-            <input type="radio" id="option3" name="options" value="Option3">
-            <label for="option3" id="label3"></label><br>
-            <br>
-            <button onclick="submitButton()">Submit</button>
-            <br><br>
-        </div>
+        <h2 id="questionSpace"></h2>
+        <h3 id="yourScore"></h3> 
+        <h4 id="scoreMessage"></h4> 
+        <input type="radio" id="option1" name="options" value="Option1">
+        <label for="option1" id="label1"></label><br>
+        <input type="radio" id="option2" name="options" value="Option2">
+        <label for="option2" id="label2"></label><br>
+        <input type="radio" id="option3" name="options" value="Option3">
+        <label for="option3" id="label3"></label><br>
+        <br>
+        <button onclick="submitButton()">Submit</button>
+        <br><br>
+    </div>
       
     
         <script>
@@ -53,6 +54,7 @@
             const label3 = document.getElementById("label3");
             const questionSpace = document.getElementById("questionSpace");
             var yourScore = document.getElementById("yourScore");
+            var scoreMessageElement = document.getElementById("scoreMessage")
     
             var counter = 0; //this is a counter which starts the questions / options from the first question starting at 0
             var score = 0; //this tracks the score starting it from 0
@@ -91,11 +93,13 @@
                     label2.innerHTML = "";
                     label3.innerHTML = "";
                     yourScore.innerHTML = "Your score is " + score + " / 6"; //this will show the users score out of 6
+                    displayMessage(score);
         //this block of code below is to make it so at the end of the quiz when it says "Quiz completed!" the radio buttons will disappear            
         document.getElementById("option1").style.display = "none";
         document.getElementById("option2").style.display = "none";
         document.getElementById("option3").style.display = "none";
         document.querySelector('button').style.display = "none";
+        
                 }}
     
             //question update
@@ -120,6 +124,26 @@
         //if no option selected it will show an error message or alert to the user
         alert("Please select an option");
     }}
+    function displayMessage(score) {
+            var message = "";
+            if (score === 6) {
+                message = "Well done! You are amazing; you know your stuff!";
+            } else if (score === 5) {
+                message = "Well done! Amazing, go you!";
+            } else if (score === 4) {
+                message = "You did great!";
+            } else if (score === 3) {
+                message = "Good job!";
+            } else if (score === 2) {
+                message = "Nice try!";
+            } else if (score === 1) {
+                message = "Unlucky..";
+            } else if (score === 0) {
+                message = "Good luck next time!";
+            }
+
+            scoreMessageElement.innerHTML = message;
+        }
         </script>
 </body>
 
@@ -131,6 +155,8 @@
     h1{font-size: 2.5cm; 
     color: #e2e2e2;}
     h2{font-size: 25px;
+      color: #e2e2e2;}
+      h4{font-size: 25px;
       color: #e2e2e2;}
     #questions {
       font-size: 20px;
@@ -161,60 +187,52 @@ font-size: 8px;
 font-weight: normal;
 font-family: sans-serif;
 background-color: rgb(27, 35, 46);
---icon-hover-bg: #ffffff;
---border-color: #495579;
---darkest-blue: #15171f;
---navy-blue: rgb(27, 35, 46);
---fade-blue: rgba(57, 57, 87, 0.55);
 text-align: center;
 }
 
-#my-menu {
+#sideMenu {
 display: none;
 }
-label[for="my-menu"] {
-display: block;
-position: fixed;
+label[for="sideMenu"] {
+  position: fixed;
 top: 24px;
 left: 20px;
 z-index: 999;
 width: 60px;
 height: 60px;
 border-radius: 15px;
-border: 2px solid var(--border-color);
+border: 2px solid #495579;
+background-color: rgb(27, 35, 46);
 }
-.my-menu {
-width: 50vw;
+
+.sideMenu {
+  display: none;
+width: 40%;
 height: 100%;
 position: fixed;
-top: 0;
-visibility: hidden;
+top: 0;  
+left: 0;
 transform: translate(-110%);
-z-index: 998;
-background-color: var(--darkest-blue);
-transition: 1s;
-display: flex;
+background-color: #15171f; 
+transition: 1s; /* note for self: this controls the side menu when opening it. It slows it down and gives it a transition when opening */
+display: flex; 
 justify-content: center;
 align-items: center;
 }
-.my-menu > ul {
-display: flex;
+.sideMenu > ul {
+  display: flex;
 flex-flow: column nowrap;
-justify-content: space-around;
 padding: 20px;
 height: 50%;
 }
 
-#my-menu:checked + label {
-background-color: transparent;
-border-color: var(--navy-blue);
-}
-#my-menu:checked ~ div.my-menu {
+/* note to self: this makes sure the menu doesn't change the appearance of sideMenu to the div element and allows it to actually work */
+#sideMenu:checked ~ div.sideMenu {
 transform: translate(0px);
 visibility: visible;
 }
 
-[for="my-menu"] > div {
+[for="sideMenu"] > div {
 width: 100%;
 height: 100%;
 display: flex;
@@ -222,24 +240,16 @@ flex-flow: column wrap;
 align-content: center;
 
 }
-.menu-line {
-display: block;
+
+.menuLine {
+  display: block;
 width: 17px;
 height: 2px;
-margin: 10px 0 5px;
-border-top-left-radius: 2px;
-border-bottom-left-radius: 2px;
-background-color: var(--border-color);
+margin: 10px 0 6px;
+background-color: #495579;
+
 }
 
-p {
-display: inline;
-font-size: 1.8rem;
-line-height: 1.5em;
-word-spacing: 0.5em;
-letter-spacing: 0.1em;
-font-family: "OpenSansCondensed-Light";
-}
 a {
 font-size: 30px;
 line-height: 1.5em;

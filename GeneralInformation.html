@@ -7,18 +7,20 @@
     <title>General Information</title>
 </head>
 <body>
-    <input type="checkbox" id="my-menu">
-    <label for="my-menu">
+    <input type="checkbox" id="sideMenu">
+    
+    <label for="sideMenu">
       <div class="hide-des">
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
+        <span class="menuLine"></span>
       </div>
     </label>
-    <div class="my-menu">
+
+    <div class="sideMenu">
       <ul class="navbar">
         <a href="Homepage.html" class="no-underline">Home</a>
         <a href="GeneralInformation.html" class="no-underline">General Information</a>
@@ -29,10 +31,9 @@
         <a href="programmingquiz.html" class="no-underline">QUIZ!</a>
       </ul>
     </div>
-
    <h1>NCEA General Information</h1>
  <h3>
-• For each subject, the student will be offered several Standards. <br>
+• For each subject, you will be offered several Standards. <br>
 • Each Standard is worth a particular number of credits. <br>
 <br>
 To achieve the National Certificate of Educational Achievement in each Level you must gain the following:<br><br>
@@ -99,18 +100,13 @@ font-size: 8px;
 font-weight: normal;
 font-family: sans-serif;
 background-color: rgb(27, 35, 46);
---icon-hover-bg: #ffffff;
---border-color: #495579;
---darkest-blue: #15171f;
---navy-blue: rgb(27, 35, 46);
---fade-blue: rgba(57, 57, 87, 0.55);
 }
 
-#my-menu {
+#sideMenu {
 display: none;
 }
-label[for="my-menu"] {
-display: block;
+
+label {
 position: fixed;
 top: 24px;
 left: 20px;
@@ -118,65 +114,61 @@ z-index: 999;
 width: 60px;
 height: 60px;
 border-radius: 15px;
-border: 2px solid var(--border-color);
+border: 2px solid #495579;
+background-color: rgb(27, 35, 46);
 }
-.my-menu {
-width: 50vw;
+
+
+.sideMenu {
+  display: none;
+width: 40%;
 height: 100%;
 position: fixed;
-top: 0;
-visibility: hidden;
+top: 0;  
+left: 0;
 transform: translate(-110%);
-z-index: 998;
-background-color: var(--darkest-blue);
-transition: 1s;
-display: flex;
+background-color: #15171f; 
+transition: 1s; /* note for self: this controls the side menu when opening it. It slows it down and gives it a transition when opening */
+display: flex; 
 justify-content: center;
 align-items: center;
 }
-.my-menu > ul {
+
+.sideMenu > ul {
 display: flex;
 flex-flow: column nowrap;
-justify-content: space-around;
 padding: 20px;
 height: 50%;
 }
 
-#my-menu:checked + label {
-background-color: transparent;
-border-color: var(--navy-blue);
-}
-#my-menu:checked ~ div.my-menu {
+
+ /* note to self: this makes sure the menu doesn't change the appearance of sideMenu to the div element and allows it to actually work */
+#sideMenu:checked ~ div.sideMenu{
 transform: translate(0px);
-visibility: visible;
 }
 
-[for="my-menu"] > div {
-width: 100%;
+
+
+
+div {
 height: 100%;
 display: flex;
 flex-flow: column wrap;
 align-content: center;
-
 }
-.menu-line {
+
+.menuLine {
 display: block;
 width: 17px;
 height: 2px;
-margin: 10px 0 5px;
-border-top-left-radius: 2px;
-border-bottom-left-radius: 2px;
-background-color: var(--border-color);
+margin: 10px 0 6px;
+background-color: #495579;
+
 }
 
-p {
-display: inline;
-font-size: 1.8rem;
-line-height: 1.5em;
-word-spacing: 0.5em;
-letter-spacing: 0.1em;
-font-family: "OpenSansCondensed-Light";
-}
+
+
+
 a {
 font-size: 30px;
 line-height: 1.5em;
@@ -206,7 +198,6 @@ color: #f1fff1;
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
 
 
   </style>
